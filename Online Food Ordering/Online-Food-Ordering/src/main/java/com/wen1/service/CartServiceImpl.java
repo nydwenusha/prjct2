@@ -1,8 +1,11 @@
+
+
 package com.wen1.service;
 
+import com.wen1.model.Food;
 import com.wen1.model.Cart;
 import com.wen1.model.CartItem;
-import com.wen1.model.Food;
+
 import com.wen1.model.User;
 import com.wen1.repository.CartItemRepository;
 import com.wen1.repository.CartRepository;
@@ -48,7 +51,7 @@ public class CartServiceImpl implements CartService{
         newCartItem.setCart(cart);
         newCartItem.setQuantity(req.getQuantity());
         newCartItem.setIngredients(req.getIngredients());
-        newCartItem.setTotalPrice(req.getQuantity()*food.getPrice());
+        newCartItem.setTotalPrice((req.getQuantity() * food.getPrice()));
 
         CartItem savedCartItem=cartItemRepository.save(newCartItem);
 
@@ -69,7 +72,7 @@ public class CartServiceImpl implements CartService{
 
 
 
-        item.setTotalPrice(item.getFood().getprice()*quantity);
+        item.setTotalPrice(item.getFood().getPrice() * quantity);
 
 
         return cartItemRepository.save(item);
@@ -100,7 +103,7 @@ public class CartServiceImpl implements CartService{
         Long total=0L;
 
         for(CartItem cartItem :cart.getItems()){
-            total+=cartItem.getFood().getPrice()*cartItem.getQuantity();
+            total+=cartItem.getFood().getPrice() * cartItem.getQuantity();
         }
 
         return total;

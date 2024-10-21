@@ -5,14 +5,23 @@ import com.wen1.model.Food;
 import com.wen1.model.Restaurant;
 import com.wen1.repository.FoodRepository;
 import com.wen1.request.CreateFoodRequest;
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class FoodServiceImp implements FoodService{
 
     private FoodRepository foodRepository;
+
+    @Autowired
+    public FoodServiceImp(FoodRepository foodRepository) {
+        this.foodRepository = foodRepository;
+    }
 
     @Override
     public Food createFood(CreateFoodRequest req, Category category, Restaurant restaurant) {
@@ -24,8 +33,9 @@ public class FoodServiceImp implements FoodService{
         food.setName(req.getName());
         food.setPrice(req.getPrice());
         food.setIngredients(req.getIngredients());
-        food.setSeasonal(req.isSeasional());
+        food.setSeasonal(req.isSeasonal());
         food.setVegetarian(req.isVegetarian());
+        //food.setCreationDate(new Date());
 
         Food savedFood=foodRepository.save(food);
         restaurant.getFoods().add(savedFood);

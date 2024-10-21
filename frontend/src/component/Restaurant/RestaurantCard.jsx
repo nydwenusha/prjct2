@@ -4,9 +4,22 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import Card from '@mui/material/Card';
 import Chip from '@mui/material/Chip';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Navigate, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { isPresentInFavorites } from "../config/logic.jsx";
+import { addToFavorite } from "../State/Authentication/Action.js";
 
 
 const RestaurantCard = () => {
+  
+  /*
+  const handleNavigateToRestaurant=()=>{
+    if(item.open){
+        Navigate(`/restaurant/${item.address.city}/${item.name}/${item.id}`)
+    }
+  }
+    */
+
   return (
     <Card className="w-[18rem]">
       <div
@@ -16,7 +29,7 @@ const RestaurantCard = () => {
       >
         <img
           className="w-full h-[10rem] rounded-t-md object-cover"
-          src="https://images.unsplash.com/photo-1497644083578-611b798c60f3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9oBl8oMj8unCKsHx9WuzVKgxc34HJnei-Qw&s"
           alt=""
         />
         <Chip
@@ -28,9 +41,9 @@ const RestaurantCard = () => {
       </div>
       <div className="p-4 textPart lg:flex w-full justify-between">
         <div className="space-y-1">
-              <p className="font-semibold text-lg">Midland Restaurant</p>
+              <p className="font-semibold text-lg cursor-pointer">Fast Food</p>
               <p className="text-gray-500 text-sm">
-                  Craving it all? Dive into our global fla...
+                   Craving it all? Dive into our global fla...
               </p>
 
         </div>

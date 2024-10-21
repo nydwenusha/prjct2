@@ -1,7 +1,13 @@
 package com.wen1.response;
+import lombok.Data;
 
 public class MessageResponse {
     private String message;
+
+
+
+    //---------------------------------------------
+
 
     // Default constructor
     public MessageResponse() {

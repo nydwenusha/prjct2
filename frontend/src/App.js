@@ -17,10 +17,10 @@ import { getUser } from './component/State/Authentication/Action.js';
 import { LightMode } from '@mui/icons-material';
 
 
-function App() { 
-  const dispatch = useDispatch()
-  const jwt=localStorage.getItem("jwt")
-  const {auth}=useSelector((store)=>store)
+function App() {
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem("jwt");
+  const { auth } = useSelector((store) => store);
 
   /*useEffect(()=>{
 dispatch(getUser(auth.jwt || jwt));
@@ -32,19 +32,20 @@ dispatch(getUser(auth.jwt || jwt));
       dispatch(getUser(jwt));
     }
   }, [auth.jwt, jwt, dispatch]);
-  
 
   return (
-     //<ThemeProvider theme={darkTheme}>
-         
+    /*
+    <ThemeProvider theme={darkTheme}>
+      
+    </ThemeProvider>
 
-     //</ThemeProvider>   
-     <>
-     <CssBaseline/> 
-         
-        <CustomerRoute/> 
+    */
+    <>
+          <CssBaseline />
+
+      <CustomerRoute />
+      
         </>
-
   );
 }
 

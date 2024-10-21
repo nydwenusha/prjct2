@@ -25,4 +25,40 @@ public class OrderItem {
     private Long totalPrice;
 
     private List<String> ingredients;
+
+    //----------------------------------------------------------------
+
+    // Properly implemented methods
+    public void setTotalPrice(Long totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Long getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setIngredients(List<String> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public List<String> getIngredients() {
+        return ingredients;
+    }
+
+    public void setFood(Food food) {
+        this.food = food;
+    }
+
+    public Food getFood() {
+        return food;
+    }
+
 }

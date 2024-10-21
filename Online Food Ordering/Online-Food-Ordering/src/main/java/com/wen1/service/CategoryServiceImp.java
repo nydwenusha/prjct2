@@ -4,11 +4,13 @@ import com.wen1.model.Category;
 import com.wen1.model.Restaurant;
 import com.wen1.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
+@Service
 public class CategoryServiceImp implements CategoryService{
 
     @Autowired
@@ -31,7 +33,7 @@ public class CategoryServiceImp implements CategoryService{
     @Override
     public List<Category> findCategoryByRestaurantId(Long id) throws Exception {
         Restaurant restaurant= restaurantService.getRestaurantByUserId(id);
-        return categoryRepository.findByRestaurantId(restaurant.getId());
+        return categoryRepository.findByRestaurantId(id);
     }
 
     @Override

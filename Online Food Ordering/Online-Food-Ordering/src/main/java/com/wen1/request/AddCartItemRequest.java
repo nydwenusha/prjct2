@@ -13,8 +13,14 @@ public class AddCartItemRequest {
 
     private List<String> ingredients;
 
+    //----------------------------------------------------------
+
     public Long getFoodId() {
         return foodId;
+    }
+
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
     }
 
     public int getQuantity() {
@@ -24,4 +30,6 @@ public class AddCartItemRequest {
     public Object getIngredients() {
         return ingredients;
     }
+
+
 }

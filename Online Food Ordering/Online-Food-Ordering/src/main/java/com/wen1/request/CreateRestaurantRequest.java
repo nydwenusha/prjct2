@@ -1,45 +1,51 @@
 package com.wen1.request;
 
 import com.wen1.model.Address;
+import com.wen1.model.ContactInformation;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class CreateRestaurantRequest {
 
-    private Address address;          // Field for restaurant address
-    private Object contactInformation; // Change Object to appropriate type if known
-    private String cuisineType;       // Assuming cuisineType is a String
-    private String description;        // Assuming description is a String
-    private List<String> images;      // Assuming images is a List of Strings
-    private String name;              // Assuming name is a String
-    private String openingHours;      // Assuming openingHours is a String
+    private Long id;
+    private Address address;
+    private ContactInformation contactInformation;
+    private String cuisineType;
+    private String description;
+    private List<String> images;
+    private String name;
+    private String openingHours;
+
+    //----------------------------------------------
 
     public Address getAddress() {
 
          return address;
     }
 
-    public Object getContactInformation() {
+    public ContactInformation getContactInformation() {
         return contactInformation;
     }
 
-    public Object getCuisineType() {
+    public String getCuisineType() {
         return cuisineType;
     }
 
-    public Object getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public Object getImages() {
+    public List<String> getImages() {
         return images;
     }
 
-    public Object getName() {
+    public String getName() {
         return name;
     }
 
-    public Object getOpeningHours() {
+    public String getOpeningHours() {
         return openingHours;
     }
 }

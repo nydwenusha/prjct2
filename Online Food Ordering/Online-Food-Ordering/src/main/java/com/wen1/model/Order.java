@@ -45,4 +45,63 @@ public class Order {
     private int totalItem;
 
     private Long totalPrice;
+
+
+    //-------------------------------------------
+
+    public Object getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Object orderStatus) {
+        this.orderStatus = (String) orderStatus;
+    }
+
+    public void setTotalPrice(Long totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public Long getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
+    }
+
+    public List<OrderItem> getItems() {
+        return items;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setDeliveryAddress(Address deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
+    }
+
+    public Address getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCustomer(User customer) {
+        this.customer = customer;
+    }
+
+    public User getCustomer() {
+        return customer;
+    }
 }

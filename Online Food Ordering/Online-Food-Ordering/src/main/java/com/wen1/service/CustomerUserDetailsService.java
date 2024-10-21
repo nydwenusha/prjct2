@@ -27,12 +27,12 @@ public class CustomerUserDetailsService implements UserDetailsService {
                throw new UsernameNotFoundException("user not found with email"+username);
         }
 
-        USER_ROLE role=user.getRole();
+        USER_ROLE role= (USER_ROLE) user.getRole();
 
         List<GrantedAuthority> authorities=new ArrayList<>();
 
         authorities.add(new SimpleGrantedAuthority(role.toString()));
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(),authorities);
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), (String) user.getPassword(),authorities);
     }
 }

@@ -4,8 +4,10 @@ import com.wen1.model.Category;
 import com.wen1.model.Food;
 import com.wen1.model.Restaurant;
 import com.wen1.request.CreateFoodRequest;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 
 public interface FoodService {
 

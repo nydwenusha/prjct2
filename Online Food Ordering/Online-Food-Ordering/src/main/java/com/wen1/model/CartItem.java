@@ -31,8 +31,9 @@ public class CartItem {
 
     private Long totalPrice;
 
+    //---------------------------------------------------------
 
-    public Object getFood() {
+    public Food getFood() {
         return food;
     }
 
@@ -57,10 +58,17 @@ public class CartItem {
     public void setIngredients(Object ingredients) {
     }
 
-    public void setTotalPrice(int i) {
+
+
+    public void setTotalPrice(Long totalPrice) {
+      this.totalPrice = totalPrice;
     }
 
-    public void setTotalPrica(int i) {
+    public Long getTotalPrice() {
+        return totalPrice;
+    }
 
+    public List<String> getIngredients() {
+        return ingredients;
     }
 }

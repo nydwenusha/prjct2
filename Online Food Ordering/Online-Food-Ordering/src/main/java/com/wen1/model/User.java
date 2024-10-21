@@ -43,6 +43,8 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses = new ArrayList<>();
 
+    //-----------------------------------------------------------------
+
     public Long getId() {
         return id;
     }
@@ -52,36 +54,48 @@ public class User {
         return favorites;
     }
 
+    public void setFavorites(List<RestaurantDto> favorites) {
+        this.favorites = favorites;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
-
+        this.email = email;
     }
 
-    public Object getFullName() {
+    public String getFullName() {
         return fullName;
     }
 
-
-    public void setFullName(Object fullName) {
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-
-    public Object getRole() {
+    public USER_ROLE getRole() {
         return role;
     }
 
-
-    public void setRole(Object role) {
+    public void setRole(USER_ROLE role) {
+        this.role = role;
     }
 
-    public void setPassword(String encode) {
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public CharSequence getPassword() {
+    public String getPassword() {
         return password;
+    }
+
+    public List<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<Address> addresses) {
+        this.addresses = addresses;
     }
 }
 

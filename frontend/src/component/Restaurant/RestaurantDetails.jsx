@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -8,6 +8,10 @@ import { RadioGroup } from '@mui/material';
 import { Radio } from '@mui/material';
 import { Category } from '@mui/icons-material';
 import MenuCard from './MenuCard';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getRestaurantById, getRestaurantsCategory } from '../State/Restaurant/Action.js';
+import { getMenuItemByRestaurantId, getMenuItemsByRestaurantId } from '../State/Menu/Action.js';
 
 
 
@@ -20,6 +24,8 @@ const categories=[
     "rice"
 
 ]
+    
+
 const foodTypes=[
     {label:"All",value:"all"},
     {label:"Vegetarian only",value:"vegetarian"},
@@ -32,9 +38,29 @@ const menu=[1,1,1,1,1,1]
 
 const RestaurantDetails = () => {
     const [foodType,setFoodType]=useState("all")
+    /*const navigate=useNavigate()
+    const dispatch=useDispatch();
+    const jwt=localStorage.getItem("jwt")
+    const {auth,restaurant}=useSelector(store=>store)
+
+    const {id}=useParams();
+    */
+
     const handleFilter=(e)=>{
         console.log(e.target.value,e.target.name)
     }
+
+    
+    /*console.log("restaurant",restaurant)
+
+    useEffect(()=>{
+      dispatch(getRestaurantById({jwt,restaurantId:id}))
+      dispatch(getRestaurantsCategory({jwt,restaurantId:id}))
+      dispatch(getMenuItemsByRestaurantId({jwt,restaurantId:id,
+        vegetarian:false, nonveg:false,seasonal:false}))
+    },[])
+*/
+    
   return (
     <div className="px-5 lg:px-20">
       <section>
@@ -46,7 +72,7 @@ const RestaurantDetails = () => {
             <Grid item xs={12}>
               <img
                 className="w-full h-[40vh] object-cover"
-                src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=400"
+                src="https://img.freepik.com/premium-photo/restaurant-with-green-leaf-ceiling_763111-305022.jpg" 
                 alt=""
               />
             </Grid>
@@ -54,7 +80,7 @@ const RestaurantDetails = () => {
             <Grid item xs={12} lg={6}>
               <img
                 className="w-full h-[40vh] object-cover"
-                src="https://images.pexels.com/photos/1307698/pexels-photo-1307698.jpeg?auto=compress&cs=tinysrgb&w=400 "
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV3V_QmFRmB8xPPSOmShms0tMMMAH1G9i7pg&s"
                 alt=""
               />
             </Grid>
@@ -69,11 +95,12 @@ const RestaurantDetails = () => {
           </Grid>
         </div>
         <div className="pt-3 pb-5">
-          <h1 className="text-4xl font-semibold">Indian Fast Food</h1>
+          <h1 className="text-4xl font-semibold">Fast Food</h1>
           <p className="text-gray-500 mt-1">
-            ertygu fhgjk cvb ygukh gkj cbv rytu yukh yyiou cvbnmn,m cvbnmn
-            ghjkkkj vbvn tyuy dgfjh bnmn uilk zdfgj tryuy ghj vbj hg ghj fgmnmn
-            vbnb bnbm hjhkjl rtyu dg vh ghjkhjku ghgjhjh
+              gdfhgkj hhjhlk;k tujlb vnbkg fddghgohlk vvnc erruysyr hfkl tuiiotk fgjhhg 
+              fjhhfkl fjhhoufjiosd vnbm rtuyioy gfjhlkhl gfhgjkjgl etryruiu gfhfkj gfhgfhjf 
+              dfshg gfhgkj 
+            
           </p>
 
           <div className="space-y-3 mt-3">
@@ -99,7 +126,8 @@ const RestaurantDetails = () => {
               </Typography>
 
               <FormControl className="py-10 space-y-5" component={"fieldset"}>
-                <RadioGroup onChange={handleFilter} name="food_type" value={foodType}>
+                <RadioGroup onChange={handleFilter} name="food_type" value=
+                {foodType}>
                   {foodTypes.map((item) => (
                     <FormControlLabel
                       key={item.value}

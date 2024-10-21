@@ -1,10 +1,8 @@
 package com.wen1.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +18,45 @@ public class IngredientsItem {
 
     private String name;
 
+    @ManyToOne
     private IngredientCategory category;
 
+    @JsonIgnore
+    @ManyToOne
+    private Restaurant restaurant;
+
+    private boolean inStock=true;
+
+    //---------------------------------------------------------
+
+
+
+
+    // Corrected method implementations
+    public void setName(String ingredientName) {
+        this.name = ingredientName;
+    }
+
+    public void setCategory(IngredientCategory category) {
+        this.category = category;
+    }
+
+    public void setInStock(boolean inStock) {  // Corrected name
+        this.inStock = inStock;
+    }
+
+    public boolean isInStock() {  // Corrected name
+        return inStock;
+    }
+
+
+
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
 }

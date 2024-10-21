@@ -55,13 +55,16 @@ public class RestaurantServiceImp implements RestaurantService {
             restaurant.setCuisineType(updatedRestaurant.getCuisineType());
         }
 
-        if(restaurant.getDescription()!=null){
+       /* if(restaurant.getDescription()!=null){
             restaurant.setDescription(updatedRestaurant.getDescription());
         }
 
-        if(restaurant.getName()!=null){
-            restaurant.setName(updatedRestaurant.getName());
-        }
+         if(restaurant.getName()!=null){
+             restaurant.setName(updatedRestaurant.getName());
+         }
+
+         
+        */
 
         return restaurantRepository.save(restaurant);
     }
@@ -104,6 +107,7 @@ public class RestaurantServiceImp implements RestaurantService {
         return restaurant;
     }
 
+
     @Override
     public RestaurantDto addToFavorites(Long restaurantId, User user) throws Exception {
 
@@ -115,26 +119,31 @@ public class RestaurantServiceImp implements RestaurantService {
         dto.setTitle(restaurant.getName());
         dto.setId(restaurantId);
 
-
         boolean isFavorited = false;
         List<RestaurantDto> favorites = user.getFavorites();
-        for (RestaurantDto favorite : favorites){
-            if(favorite.getId().equals(restaurantId)) {
+        for(RestaurantDto favorite : favorites) {
+            if (favorite.getId().equals(restaurantId)){
                 isFavorited = true;
                 break;
             }
         }
 
-        if(isFavorited){
+
+
+        if (isFavorited){
             favorites.removeIf(favorite -> favorite.getId().equals(restaurantId));
-        }else{
+        }else {
             favorites.add(dto);
         }
 
 
         userRepository.save(user);
         return dto;
+
     }
+
+
+
 
     @Override
     public Restaurant updateRestaurantStatus(Long id) throws Exception {

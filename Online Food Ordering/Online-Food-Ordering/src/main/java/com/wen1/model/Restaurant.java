@@ -36,8 +36,8 @@ public class Restaurant {
 
     private String openingHours;
 
-    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Order> orders=new ArrayList<>();
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
 
     @ElementCollection
     @Column(length = 1000)
@@ -48,58 +48,92 @@ public class Restaurant {
     private boolean open;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
-    private List<Food> foods=new ArrayList<>();
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    private List<Food> foods = new ArrayList<>();
 
 
+    //-----------------------------------------------
+
+
+    // Correctly implemented methods
     public void setAddress(Address address) {
+        this.address = address;
     }
 
-    public void setDescription(Object description) {
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setCuisineType(Object cuisineType) {
+    public void setCuisineType(String cuisineType) {
+        this.cuisineType = cuisineType;
     }
 
-    public void setContactInformation(Object contactInformation) {
+    public void setContactInformation(ContactInformation contactInformation) {
+        this.contactInformation = contactInformation;
     }
 
-    public void setImages(Object images) {
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 
-    public void setName(Object name) {
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setOpeningHours(Object openingHours) {
+    public void setOpeningHours(String openingHours) {
+        this.openingHours = openingHours;
     }
 
-    public void setRegistrationDate(LocalDateTime now) {
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
-    public void setOwner(User user) {
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
+
+    public boolean isOpen() {
+        return open;
+    }
+
+    public List<Food> getFoods() {
+        return foods;
+    }
+
+    public void setFoods(List<Food> foods) {
+        this.foods = foods;
+    }
+
+    // Fix for getOrders and setOrders
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+
+
 
     public String getCuisineType() {
         return cuisineType;
     }
 
-    public String getDescription() {
-        return description;
+    public boolean getDescription() {
+        return true;
     }
 
-    public String getName() {
-        return name;
-    }
+    public boolean getName() {
+        return true;
 
-    public Object getImages() {
-        return images;
-    }
-
-    public void setOpen(boolean b) {
-
-    }
-
-    public boolean isOpen() {
-        return open;
     }
 }

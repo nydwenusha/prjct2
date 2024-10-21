@@ -21,4 +21,23 @@ public class Category {
     @ManyToOne
     @JsonIgnore
     private Restaurant restaurant;
+
+    //--------------------------------------------------------------
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
 }

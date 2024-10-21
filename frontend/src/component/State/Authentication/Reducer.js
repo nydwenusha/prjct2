@@ -37,6 +37,7 @@ export const authReducer=(state=initialState,action)=>{
           ...state,
           isLoading: false,
           user: action.payload,
+          //favorites:action.payload.favorites
            
         };
       case ADD_TO_FAVORITE_SUCCESS:
@@ -44,10 +45,10 @@ export const authReducer=(state=initialState,action)=>{
           ...state,
           isLoading: false,
           error: null,
-         /* favorites: isPresentInFavorites(state.favorites, action.payload)
+          favorites: isPresentInFavorites(state.favorites, action.payload)
             ? state.favorites.filter((item) => item.id !== action.payload.id)
             : [action.payload, ...state.favorites],
-            */
+            
         };
 
       case LOGOUT:
